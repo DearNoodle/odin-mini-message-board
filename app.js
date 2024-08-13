@@ -1,3 +1,19 @@
+import dotenv from 'dotenv';
+import { neon } from '@neondatabase/serverless';
+
+dotenv.config();
+
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+
+const sql = neon(`postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}?sslmode=require`);
+
+const getPgVersion = async () => {
+  const result = await sql`SELECT version()`;
+  console.log(result[0]);
+};
+
+getPgVersion();
+
 import express from 'express';
 import path from 'path';
 import { indexRouter } from './routes/indexRouter.js';
