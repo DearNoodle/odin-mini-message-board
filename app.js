@@ -7,12 +7,14 @@ const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 const sql = neon(`postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}?sslmode=require`);
 
-const getPgVersion = async () => {
-  const result = await sql`SELECT version()`;
-  console.log(result[0]);
-};
+async function getPlayingWithNeonData() {
+  const result = await sql`
+    SELECT * FROM playing_with_neon;
+  `;
+  console.log(result);
+}
 
-getPgVersion();
+getPlayingWithNeonData();
 
 import express from 'express';
 import path from 'path';
