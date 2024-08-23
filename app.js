@@ -1,21 +1,3 @@
-// import dotenv from 'dotenv';
-// // import { neon } from '@neondatabase/serverless';
-
-// // dotenv.config();
-
-// const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
-
-// // const sql = neon(`postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}?sslmode=require`);
-
-// async function getPlayingWithNeonData() {
-//   const result = await sql`
-//     SELECT * FROM playing_with_neon;
-//   `;
-//   console.log(result);
-// }
-
-// getPlayingWithNeonData();
-
 import express from 'express';
 import path from 'path';
 import router from './routes/router.js';
